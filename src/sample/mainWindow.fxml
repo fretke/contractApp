@@ -1,0 +1,135 @@
+<?import javafx.scene.layout.BorderPane?>
+
+<?import javafx.scene.control.Button?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.TextField?>
+
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<BorderPane fx:id="mainBorderPane" fx:controller="sample.Controller"
+            xmlns:fx="http://javafx.com/fxml">
+
+    <top>
+        <VBox>
+            <MenuBar>
+                <Menu text="Meniu">
+                    <MenuItem text="Išsaugoti" onAction="#save">
+                        <graphic>
+                            <ImageView>
+                                <Image url="@/toolbarButtonGraphics/general/Save24.gif"/>
+                            </ImageView>
+                        </graphic>
+                    </MenuItem>
+                    <SeparatorMenuItem/>
+                    <MenuItem text="Save as.." onAction="#handleSaveAs"/>
+                    <SeparatorMenuItem/>
+                    <MenuItem text="Open" onAction="#handleOpen"/>
+                    <SeparatorMenuItem/>
+                    <MenuItem text="Išeiti" onAction="#exit">
+                    </MenuItem>
+                </Menu>
+            </MenuBar>
+            <HBox alignment="TOP_LEFT" spacing="10">
+                <padding>
+                    <Insets top="10" bottom="10" left="20"/>
+                </padding>
+
+                <TextField fx:id="searchField" promptText="Sutarties Nr" onKeyReleased="#searchContract">
+                    <tooltip>
+                        <Tooltip text="Įveskite ieškomos sutarties Numerį."/>
+                    </tooltip>
+
+                </TextField>
+                <CheckBox fx:id="lateContractsCheckBox" text="vėluojančios sutartys" onMouseClicked="#searchContract"/>
+                <CheckBox fx:id="almostLateContractsCheckBox" text="3 dienos" onMouseClicked="#searchContract" />
+                <CheckBox fx:id="closedContracts" text="Uždarytos" onMouseClicked="#searchContract" />
+
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <TableView fx:id="tableView" onKeyPressed="#deleteContract" >
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+            </columnResizePolicy>
+            <columns >
+                <TableColumn fx:id="contractsColumn" text="Sutarties Nr."/>
+                <TableColumn fx:id="startDateColumn" text="Pradžia"/>
+                <TableColumn fx:id="valueColumn" text="Suma, EUR" />
+                <TableColumn fx:id="endDateColumn" text="Pabaiga"/>
+                <TableColumn fx:id="profitColumn" text="Palūkanos"/>
+                <TableColumn fx:id="returnDateColumn" text="Grąžinimo data" />
+                <TableColumn fx:id="commentsColumn" text="Pastabos" />
+            </columns>
+        </TableView>
+    </center>
+
+    <bottom>
+        <GridPane >
+            <HBox GridPane.rowIndex="0" GridPane.columnIndex="0" spacing="10" alignment="BASELINE_LEFT">
+                <padding>
+                    <Insets top="10" bottom="10" left="20"/>
+                </padding>
+
+                <Button text="Pridėti" onAction="#showAddContractDialogue" prefWidth="120">
+                    <graphic>
+                        <ImageView>
+                            <Image url="@/toolbarButtonGraphics/general/Add24.gif"/>
+                        </ImageView>
+                    </graphic>
+                </Button>
+
+                <Button text="Modifikuoti" onAction="#showModifyContractDialogue" prefWidth="120">
+                    <graphic>
+                        <ImageView>
+                            <Image url="@/toolbarButtonGraphics/general/Edit24.gif"/>
+                        </ImageView>
+                    </graphic>
+
+                </Button>
+
+                <Button text="Ištrinti" prefWidth="120" onAction="#deleteContractMouse">
+                    <graphic>
+                        <ImageView>
+                            <Image url="@/toolbarButtonGraphics/general/Delete24.gif"/>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="informationButton" text="Suvestinė" onAction="#overviewPane" prefWidth="120">
+                    <graphic>
+                        <ImageView>
+                            <Image url="@/toolbarButtonGraphics/general/History24.gif"/>
+                        </ImageView>
+                    </graphic>
+
+                </Button>
+                <Button fx:id="expectedProfit" text="Teorinis" onAction="#expectedProfitPane" prefWidth="120">
+                    <graphic>
+                    <ImageView>
+                        <Image url="@/toolbarButtonGraphics/general/TipOfTheDay24.gif"/>
+                    </ImageView>
+                </graphic>
+
+                </Button>
+
+            </HBox>
+
+        </GridPane>
+    </bottom>
+
+
+</BorderPane>

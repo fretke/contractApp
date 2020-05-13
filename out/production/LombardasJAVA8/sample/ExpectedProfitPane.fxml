@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<DialogPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/10.0.2-internal" fx:controller="sample.ExpectedProfitPaneController">
+    <content>
+        <GridPane alignment="BASELINE_LEFT">
+            <padding>
+                <Insets bottom="10" left="10" right="10" top="10" />
+            </padding>
+
+            <VBox alignment="BASELINE_LEFT" spacing="10" GridPane.rowIndex="1">
+                <Label fx:id="totalContractNumber" />
+                <Label fx:id="borrowedAmount" />
+                <DatePicker fx:id="searchStart" onAction="#choiceOnAction" promptText="Paieskos pradzia" />
+                <DatePicker fx:id="searchEnd" onAction="#choiceOnAction" promptText="Paieskos pabaiga" />
+                <Label fx:id="profitForPeriod" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+            </VBox>
+         <ChoiceBox fx:id="choiceBox" prefWidth="150.0" onAction="#choiceOnAction">
+
+         </ChoiceBox>
+         <columnConstraints>
+            <ColumnConstraints />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
+
+
+        </GridPane>
+
+
+
+    </content>
+
+
+</DialogPane>

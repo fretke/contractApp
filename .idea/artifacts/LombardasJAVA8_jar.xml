@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact name="LombardasJAVA8:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/LombardasJAVA8_jar</output-path>
+    <root id="root">
+      <element id="archive" name="LombardasJAVA8.jar">
+        <element id="module-output" name="LombardasJAVA8" />
+      </element>
+      <element id="file-copy" path="E:/jlfg.jar" />
+      <element id="dir-copy" path="$PROJECT_DIR$/src/Resource" />
+    </root>
+  </artifact>
+</component>
